@@ -5,4 +5,31 @@
   border-top: 1px solid var(--color-gold-muted);
   position: relative;
   z-index: var(--z-hud);
+  display: flex;
+  align-items: center;
+}
+
+/* Orbs overflow upward — positioned absolute so they bleed above the footer */
+
+.footer-orb {
+  position: absolute;
+  bottom: 0;
+}
+
+.footer-orb--left {
+  left: var(--space-2);
+}
+
+.footer-orb--right {
+  right: var(--space-2);
+}
+
+/* Center content sits between the two orbs */
+
+.footer-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  /* 154px orb + 8px offset + 8px gap each side */
+  padding: 0 170px;
 }

@@ -34,11 +34,11 @@
 - [x] **L-09** Footer HUD shell: fixed bottom bar, correct height, background
 
 ### 1.3 Footer HUD Elements
-- [ ] **L-10** Life Orb component: circular fill, red radial gradient, current/max HP display, overflows above footer — spec section 5.6
-- [ ] **L-11** Mana Orb component: circular fill, blue radial gradient, current/max Mana display, overflows above footer
-- [ ] **L-12** XP bar component: 10 segments × 10%, amber fill, fills left to right, resets on level-up — spec section 5.6
-- [ ] **L-13** Character name + level display in footer, compact typography
-- [ ] **L-14** Content area bottom padding to compensate for orb overflow
+- [x] **L-10** Life Orb component: circular fill, red radial gradient, current/max HP display, overflows above footer — spec section 5.6
+- [x] **L-11** Mana Orb component: circular fill, blue radial gradient, current/max Mana display, overflows above footer
+- [x] **L-12** XP bar component: 10 segments × 10%, amber fill, fills left to right, resets on level-up — spec section 5.6
+- [x] **L-13** Character name + level display in footer, compact typography
+- [x] **L-14** Content area bottom padding to compensate for orb overflow
 
 ### 1.4 Global UI Components
 - [ ] **L-15** Button component: gold text, crimson-to-black gradient, hover state with glow — spec section 5.1

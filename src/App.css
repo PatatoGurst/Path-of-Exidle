@@ -21,4 +21,6 @@
   flex: 1;
   overflow-y: auto;
   background: var(--color-bg-card);
+  /* Orbs (154px) overflow 90px above the 64px footer — reserve that space */
+  padding-bottom: 90px;
 }

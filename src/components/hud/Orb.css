@@ -1,0 +1,48 @@
+.orb {
+  width: 154px;
+  height: 154px;
+  border-radius: 50%;
+  border: 2px solid;
+  background: #050505;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.orb--life {
+  border-color: var(--color-hud-life-border);
+  box-shadow: 0 0 10px rgba(139, 26, 26, 0.35);
+}
+
+.orb--mana {
+  border-color: var(--color-hud-mana-border);
+  box-shadow: 0 0 10px rgba(26, 58, 139, 0.35);
+}
+
+.orb-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: height 0.3s ease;
+}
+
+.orb--life .orb-fill {
+  background: linear-gradient(to top, var(--color-hud-life-end), var(--color-hud-life-start));
+}
+
+.orb--mana .orb-fill {
+  background: linear-gradient(to top, var(--color-hud-mana-end), var(--color-hud-mana-start));
+}
+
+.orb-value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-xs);
+  font-family: var(--font-mono);
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95);
+}
