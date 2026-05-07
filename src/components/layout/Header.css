@@ -1,0 +1,18 @@
+.header {
+  height: 40px;
+  flex-shrink: 0;
+  background: var(--color-bg-panel);
+  border-bottom: 1px solid var(--color-gold-muted);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-4);
+  z-index: var(--z-header);
+}
+
+.header-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-gold-primary);
+  letter-spacing: 0.05em;
+}

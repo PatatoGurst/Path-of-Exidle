@@ -1,1 +1,24 @@
-/* App-level styles — populated during L-04+ (App Shell implementation) */
+/* ============================================================
+   App Shell Layout (L-04, L-08)
+   ============================================================ */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Middle row: sidebar + scrollable content */
+.app-body {
+  display: flex;
+  flex: 1;
+  min-height: 0; /* prevent flex child from overflowing */
+  overflow: hidden;
+}
+
+.app-main {
+  flex: 1;
+  overflow-y: auto;
+  background: var(--color-bg-card);
+}

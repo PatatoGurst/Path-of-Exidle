@@ -26,12 +26,12 @@
 - [x] **L-03** Define CSS variables for spacing, border radius, z-index layers
 
 ### 1.2 App Shell
-- [ ] **L-04** Build fixed full-viewport layout: header / sidebar / content / footer HUD — spec section 5.2
-- [ ] **L-05** Header component: game name / logo placeholder, minimal bar — spec section 5.4
-- [ ] **L-06** Left sidebar component: expanded (~200px) and collapsed (~56px) states, toggle button, smooth transition — spec section 5.5
-- [ ] **L-07** Sidebar nav items: Inventory, Map, Skill Tree (icons + labels, active state highlight)
-- [ ] **L-08** Main content area: fills remaining space, scrollable vertically
-- [ ] **L-09** Footer HUD shell: fixed bottom bar, correct height, background
+- [x] **L-04** Build fixed full-viewport layout: header / sidebar / content / footer HUD — spec section 5.2
+- [x] **L-05** Header component: game name / logo placeholder, minimal bar — spec section 5.4
+- [x] **L-06** Left sidebar component: expanded (~200px) and collapsed (~56px) states, toggle button, smooth transition — spec section 5.5
+- [x] **L-07** Sidebar nav items: Inventory, Map, Skill Tree (icons + labels, active state highlight)
+- [x] **L-08** Main content area: fills remaining space, scrollable vertically
+- [x] **L-09** Footer HUD shell: fixed bottom bar, correct height, background
 
 ### 1.3 Footer HUD Elements
 - [ ] **L-10** Life Orb component: circular fill, red radial gradient, current/max HP display, overflows above footer — spec section 5.6
