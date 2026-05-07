@@ -1,0 +1,26 @@
+.stat-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding: var(--space-1) 0;
+}
+
+.stat-label {
+  flex: 1;
+  font-size: var(--text-sm);
+  color: var(--color-gold-primary);
+}
+
+.stat-value {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-gold-light);
+  min-width: 48px;
+  text-align: right;
+}
+
+.stat-note {
+  font-size: var(--text-xs);
+  color: var(--color-gold-muted);
+  min-width: 140px;
+}

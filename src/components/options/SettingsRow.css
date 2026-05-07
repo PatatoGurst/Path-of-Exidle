@@ -1,0 +1,21 @@
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-gold-subtle);
+}
+
+.settings-row:last-child {
+  border-bottom: none;
+}
+
+.settings-row-label {
+  font-size: var(--text-sm);
+  color: var(--color-gold-primary);
+}
+
+.settings-row-control {
+  display: flex;
+  align-items: center;
+}

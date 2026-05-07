@@ -1,0 +1,22 @@
+.settings-group {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-gold-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.settings-group-title {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gold-muted);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-gold-subtle);
+  background: var(--color-bg-panel);
+}
+
+.settings-group-body {
+  display: flex;
+  flex-direction: column;
+}

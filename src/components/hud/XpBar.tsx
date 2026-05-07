@@ -26,7 +26,7 @@ export function XpBar({ currentXp, xpToLevel, characterName, level }: Props) {
         {Array.from({ length: 10 }, (_, i) => {
           const segFillPct = Math.min(1, Math.max(0, (totalPct - i * 10) / 10)) * 100
           return (
-            <div key={i} className="xp-segment">
+            <div key={`xp-segment-${i}`} className="xp-segment">
               <div className="xp-segment-fill" style={{ width: `${segFillPct}%` }} />
             </div>
           )

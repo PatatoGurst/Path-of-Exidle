@@ -1,0 +1,30 @@
+.map-act-bar {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.map-act-btn {
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-gold-subtle);
+  border-radius: var(--radius-md);
+  color: var(--color-gold-muted);
+  font-size: var(--text-xs);
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition:
+    color 0.15s,
+    border-color 0.15s;
+}
+
+.map-act-btn:hover {
+  color: var(--color-gold-primary);
+  border-color: var(--color-gold-muted);
+}
+
+.map-act-btn--active {
+  color: var(--color-gold-primary);
+  border-color: var(--color-gold-primary);
+  background: var(--color-gold-subtle);
+}

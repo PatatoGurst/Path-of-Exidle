@@ -52,14 +52,14 @@
 ## Phase 2 — Tab Routing & Page Shells
 
 ### 2.1 Routing
-- [ ] **R-01** Implement page routing in App — render the correct page component based on `activePage`
+- [x] **R-01** Implement page routing in App — render the correct page component based on `activePage`
 
 ### 2.2 Page Shells
-- [ ] **R-02** Character page shell: two-column layout (identity + stats panel) — spec section 5.14
-- [ ] **R-03** Map page shell: two-row layout (pack bar / combat area + log) — spec section 5.9
-- [ ] **R-04** Inventory page shell: three-column layout (equipment / grid+stash / currency) — spec section 5.8
-- [ ] **R-05** Skill Tree page shell: full-area canvas container — spec section 5.10
-- [ ] **R-06** Options page shell: scrollable settings panel — spec section 5.15
+- [x] **R-02** Character page shell: two-column layout (identity + stats panel) — spec section 5.14
+- [x] **R-03** Map page shell: two-row layout (pack bar / combat area + log) — spec section 5.9
+- [x] **R-04** Inventory page shell: three-column layout (equipment / grid+stash / currency) — spec section 5.8
+- [x] **R-05** Skill Tree page shell: full-area canvas container — spec section 5.10
+- [x] **R-06** Options page shell: scrollable settings panel — spec section 5.15
 
 ---
 

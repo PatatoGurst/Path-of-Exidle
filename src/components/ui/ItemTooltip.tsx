@@ -37,12 +37,12 @@ export function ItemTooltip({ name, rarity, itemType, itemLevel, quality, affixe
         <>
           <hr className="item-tooltip-divider" />
           {prefixes.map((affix, i) => (
-            <p key={i} className="item-tooltip-affix item-tooltip-affix--prefix">
+            <p key={`prefix-affix-${i}`} className="item-tooltip-affix item-tooltip-affix--prefix">
               {affix.description}
             </p>
           ))}
           {suffixes.map((affix, i) => (
-            <p key={i} className="item-tooltip-affix item-tooltip-affix--suffix">
+            <p key={`suffix-affix-${i}`} className="item-tooltip-affix item-tooltip-affix--suffix">
               {affix.description}
             </p>
           ))}
