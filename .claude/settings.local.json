@@ -6,7 +6,8 @@
       "Bash(Select-Object FullName, PSIsContainer)",
       "Bash(Format-Table -AutoSize)",
       "Bash(find /mnt/c/Perso/sources/Path-of-Exidle -maxdepth 3 -not -path \"*/node_modules/*\" | sort)",
-      "Read(//mnt/c/Perso/sources/**)"
+      "Read(//mnt/c/Perso/sources/**)",
+      "Bash(npx tsc *)"
     ]
   }
 }

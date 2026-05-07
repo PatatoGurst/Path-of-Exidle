@@ -13,7 +13,7 @@
 - [x] **P0-03** Install large number library (`break_infinity.js` or `decimal.js`)
 - [x] **P0-04** Set up folder structure: `/src`, `/data`, `/public`
 - [x] **P0-05** Set up data folder structure: `/data/monsters`, `/data/zones`, `/data/skills`, `/data/affixes`, `/data/nodes`
-- [ ] **P0-06** Configure path aliases and TypeScript strict mode
+- [x] **P0-06** Configure path aliases and TypeScript strict mode
 - [ ] **P0-07** Set up linting and formatting (ESLint + Prettier)
 
 ---
