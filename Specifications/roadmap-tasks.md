@@ -21,9 +21,9 @@
 ## Phase 1 — Global Layout & CSS Foundation
 
 ### 1.1 CSS Design Tokens
-- [ ] **L-01** Define CSS variables for the full color system (backgrounds, gold ramp, crimson ramp, rarity colors, HUD colors) — spec section 5.1
-- [ ] **L-02** Define CSS variables for typography (font family, size scale, line heights)
-- [ ] **L-03** Define CSS variables for spacing, border radius, z-index layers
+- [x] **L-01** Define CSS variables for the full color system (backgrounds, gold ramp, crimson ramp, rarity colors, HUD colors) — spec section 5.1
+- [x] **L-02** Define CSS variables for typography (font family, size scale, line heights)
+- [x] **L-03** Define CSS variables for spacing, border radius, z-index layers
 
 ### 1.2 App Shell
 - [ ] **L-04** Build fixed full-viewport layout: header / sidebar / content / footer HUD — spec section 5.2
