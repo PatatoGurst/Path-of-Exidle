@@ -1,13 +1,15 @@
-import { GiBackpack, GiSkills, GiTreasureMap } from 'react-icons/gi'
+import { GiBackpack, GiGears, GiSkills, GiSwordman, GiTreasureMap } from 'react-icons/gi'
 import type { IconType } from 'react-icons'
 import './Sidebar.css'
 
-export type Page = 'inventory' | 'map' | 'skill-tree'
+export type Page = 'character' | 'inventory' | 'map' | 'skill-tree' | 'options'
 
 const NAV_ITEMS: Array<{ id: Page; label: string; Icon: IconType }> = [
+  { id: 'character', label: 'Character', Icon: GiSwordman },
   { id: 'inventory', label: 'Inventory', Icon: GiBackpack },
   { id: 'map', label: 'Map', Icon: GiTreasureMap },
   { id: 'skill-tree', label: 'Skill Tree', Icon: GiSkills },
+  { id: 'options', label: 'Options', Icon: GiGears },
 ]
 
 interface Props {
