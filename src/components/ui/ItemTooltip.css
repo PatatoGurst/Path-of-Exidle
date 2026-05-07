@@ -1,0 +1,71 @@
+.item-tooltip {
+  min-width: 200px;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  white-space: normal;
+}
+
+/* Name — colored by rarity */
+
+.item-tooltip-name {
+  font-size: var(--text-base);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.item-tooltip-name--common {
+  color: var(--color-rarity-common);
+}
+
+.item-tooltip-name--magic {
+  color: var(--color-rarity-magic);
+}
+
+.item-tooltip-name--rare {
+  color: var(--color-rarity-rare);
+}
+
+.item-tooltip-name--unique {
+  color: var(--color-rarity-unique);
+}
+
+/* Item type line */
+
+.item-tooltip-type {
+  font-size: var(--text-sm);
+  color: var(--color-gold-muted);
+}
+
+/* Divider */
+
+.item-tooltip-divider {
+  border: none;
+  border-top: 1px solid var(--color-gold-muted);
+  margin: var(--space-1) 0;
+}
+
+/* Meta row: item level, quality */
+
+.item-tooltip-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: var(--text-sm);
+  color: var(--color-gold-primary);
+}
+
+/* Affix lines */
+
+.item-tooltip-affix {
+  font-size: var(--text-sm);
+}
+
+.item-tooltip-affix--prefix {
+  color: var(--color-rarity-magic);
+}
+
+.item-tooltip-affix--suffix {
+  color: var(--color-rarity-magic);
+}

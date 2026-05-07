@@ -41,9 +41,9 @@
 - [x] **L-14** Content area bottom padding to compensate for orb overflow
 
 ### 1.4 Global UI Components
-- [ ] **L-15** Button component: gold text, crimson-to-black gradient, hover state with glow — spec section 5.1
-- [ ] **L-16** Tooltip component: dark background, gold border, positioned near target element
-- [ ] **L-17** Item tooltip component: name (rarity-colored), type, item level, quality, affixes list — spec section 5.13
+- [x] **L-15** Button component: gold text, crimson-to-black gradient, hover state with glow — spec section 5.1
+- [x] **L-16** Tooltip component: dark background, gold border, positioned near target element
+- [x] **L-17** Item tooltip component: name (rarity-colored), type, item level, quality, affixes list — spec section 5.13
 
 ---
 
