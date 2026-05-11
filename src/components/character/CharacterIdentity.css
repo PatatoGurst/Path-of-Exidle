@@ -17,11 +17,6 @@
 .character-level {
   font-size: var(--text-base);
   color: var(--color-gold-primary);
-}
-
-.character-class {
-  font-size: var(--text-sm);
-  color: var(--color-gold-muted);
   margin-bottom: var(--space-4);
 }
 

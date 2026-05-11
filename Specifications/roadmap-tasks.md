@@ -68,12 +68,12 @@
 > All tasks use hardcoded default values (STR 10 / DEX 10 / INT 10, HP 100, Mana 50).
 > Connected to live `CharacterContext` in Phase 11.
 
-- [ ] **CH-01** Identity section: character name, level, class placeholder — spec section 5.14
-- [ ] **CH-02** Attributes section: STR, DEX, INT with per-point bonus descriptions
-- [ ] **CH-03** Vitals section: max HP and max Mana bars with numeric display
-- [ ] **CH-04** Defence section: Armour, Evasion, fire / cold / lightning / chaos resistances
-- [ ] **CH-05** Offence section: damage range, attack speed, accuracy
-- [ ] **CH-06** Points section: available skill points and respec points
+- [x] **CH-01** Identity section: character name and level (no class system)
+- [x] **CH-02** Attributes section: STR, DEX, INT with per-point bonus descriptions
+- [x] **CH-03** Vitals section: max HP and max Mana colored bars with numeric display
+- [x] **CH-04** Defence section: Armour, Evasion, fire / cold / lightning / chaos resistances
+- [x] **CH-05** Offence section: damage range, attack speed, accuracy
+- [x] **CH-06** Points section: available skill points and respec points
 
 ---
 

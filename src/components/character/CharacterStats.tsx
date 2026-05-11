@@ -1,5 +1,6 @@
 import { StatGroup } from './StatGroup'
 import { StatRow } from './StatRow'
+import { VitalBar } from './VitalBar'
 import './CharacterStats.css'
 
 export function CharacterStats() {
@@ -12,8 +13,8 @@ export function CharacterStats() {
       </StatGroup>
 
       <StatGroup title="Vitals">
-        <StatRow label="Max HP" value="100" />
-        <StatRow label="Max Mana" value="50" />
+        <VitalBar type="hp" label="Max HP" value={100} />
+        <VitalBar type="mana" label="Max Mana" value={50} />
       </StatGroup>
 
       <StatGroup title="Defence">

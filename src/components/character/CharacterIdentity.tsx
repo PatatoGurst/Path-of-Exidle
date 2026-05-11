@@ -5,7 +5,6 @@ export function CharacterIdentity() {
     <aside className="character-identity">
       <p className="character-name">Exile</p>
       <p className="character-level">Level 1</p>
-      <p className="character-class">Warrior</p>
 
       <div className="character-points">
         <div className="points-row">

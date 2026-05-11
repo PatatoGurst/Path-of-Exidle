@@ -1,0 +1,44 @@
+.vital-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+}
+
+.vital-bar-label {
+  flex-shrink: 0;
+  width: 64px;
+  font-size: var(--text-sm);
+  color: var(--color-gold-primary);
+}
+
+.vital-bar-track {
+  flex: 1;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.vital-bar-fill {
+  height: 100%;
+  width: 100%;
+  border-radius: var(--radius-full);
+}
+
+.vital-bar--hp .vital-bar-fill {
+  background: linear-gradient(to right, var(--color-hud-life-end), var(--color-hud-life-start));
+}
+
+.vital-bar--mana .vital-bar-fill {
+  background: linear-gradient(to right, var(--color-hud-mana-end), var(--color-hud-mana-start));
+}
+
+.vital-bar-value {
+  flex-shrink: 0;
+  min-width: 36px;
+  text-align: right;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-gold-light);
+}
