@@ -1,0 +1,45 @@
+.pack-tooltip {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 140px;
+}
+
+.pack-tooltip-title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-gold-primary);
+  border-bottom: 1px solid var(--color-gold-subtle);
+  padding-bottom: var(--space-1);
+  margin-bottom: var(--space-1);
+}
+
+.pack-tooltip-count {
+  font-size: var(--text-xs);
+  color: var(--color-gold-muted);
+}
+
+.pack-tooltip-monster {
+  font-size: var(--text-xs);
+}
+
+.pack-tooltip-monster--normal {
+  color: var(--color-rarity-common);
+}
+
+.pack-tooltip-monster--magic {
+  color: var(--color-rarity-magic);
+}
+
+.pack-tooltip-monster--rare {
+  color: var(--color-rarity-rare);
+}
+
+.pack-tooltip-monster--unique {
+  color: var(--color-rarity-unique);
+}
+
+.pack-tooltip-tier {
+  color: var(--color-gold-muted);
+  margin-left: var(--space-1);
+}

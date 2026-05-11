@@ -1,0 +1,11 @@
+.notif-panel {
+  position: fixed;
+  /* 64px footer + 90px orb overflow + 8px gap */
+  bottom: 162px;
+  right: var(--space-4);
+  z-index: var(--z-notification);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  pointer-events: none;
+}

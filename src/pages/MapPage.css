@@ -4,3 +4,9 @@
   gap: var(--space-4);
   padding: var(--space-4);
 }
+
+.map-page--combat {
+  gap: 0;
+  padding: 0;
+  height: 100%;
+}

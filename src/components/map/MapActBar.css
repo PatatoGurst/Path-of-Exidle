@@ -28,3 +28,8 @@
   border-color: var(--color-gold-primary);
   background: var(--color-gold-subtle);
 }
+
+.map-act-btn--locked {
+  opacity: 0.35;
+  cursor: not-allowed;
+}

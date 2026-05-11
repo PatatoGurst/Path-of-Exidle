@@ -77,16 +77,16 @@
 
 ---
 
-## Phase 4 — Map Tab UI
+## Phase 4 — Map Tab UI ✓
 
-- [ ] **M-01** Zone selection view: act selector, 12 zones per act, zone state badges (locked / unlocked / completed / active) — spec section 5.9
-- [ ] **M-02** Zone entry: click unlocked/completed zone → activate combat view
-- [ ] **M-03** Pack overview bar: one indicator per pack, active highlighted, boss distinct, hover tooltip — spec section 5.9
-- [ ] **M-04** Combat view: player HP bar (left), monster name + rarity badge + HP bar (right) — spec section 5.9
-- [ ] **M-05** Combat log: scrollable feed, auto-scroll to bottom, pause on manual scroll, 500-line cap — spec section 5.11
-- [ ] **M-06** Combat log filter panel: toggle per event type — spec section 5.11
-- [ ] **M-07** Notification system: floating panel lower-right, stack newest-at-bottom, auto-dismiss 4s, click to dismiss — spec section 5.12
-- [ ] **M-08** Notification event wiring: death, notable loot (Rare+), level-up, zone complete, auto-craft stopped — spec section 5.12
+- [x] **M-01** Zone selection view: act selector, 12 zones per act, zone state badges (locked / unlocked / completed / active) — spec section 5.9
+- [x] **M-02** Zone entry: click unlocked/completed zone → activate combat view
+- [x] **M-03** Pack overview bar: one indicator per pack, active highlighted, boss distinct, hover tooltip — spec section 5.9
+- [x] **M-04** Combat view: player HP bar (left), monster name + rarity badge + HP bar (right) — spec section 5.9
+- [x] **M-05** Combat log: scrollable feed, auto-scroll to bottom, pause on manual scroll, 500-line cap — spec section 5.11
+- [x] **M-06** Combat log filter panel: toggle per event type — spec section 5.11
+- [x] **M-07** Notification system: floating panel lower-right, stack newest-at-bottom, auto-dismiss 4s, click to dismiss — spec section 5.12
+- [x] **M-08** Notification event wiring: death, notable loot (Rare+), level-up, zone complete, auto-craft stopped — spec section 5.12
 
 ---
 
@@ -139,6 +139,7 @@
 ### 8.1 React Contexts
 - [ ] **S-01** `CharacterContext` — base stats, level, XP, respec points, derived stat computation
 - [ ] **S-02** `ZoneContext` — zone states map, active zone, current pack state
+- [ ] **S-02b** Wire `MapPage` active zone into `ZoneContext` so combat view persists when switching tabs and returning to Map (currently stored in local state — lost on unmount)
 - [ ] **S-03** `InventoryContext` — equipped items, inventory grid, stash tabs
 - [ ] **S-04** `CurrencyContext` — stack counts per currency type
 - [ ] **S-05** `SkillTreeContext` — allocated nodes, available points, respec count

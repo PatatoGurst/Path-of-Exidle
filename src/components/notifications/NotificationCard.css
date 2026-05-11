@@ -1,0 +1,70 @@
+.notif-card {
+  pointer-events: all;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  min-width: 200px;
+  max-width: 280px;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-gold-muted);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transform: translateX(calc(100% + var(--space-4)));
+  opacity: 0;
+  transition:
+    transform 0.25s ease-out,
+    opacity 0.25s ease-out;
+}
+
+.notif-card--visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.notif-card--fading {
+  transform: translateX(calc(100% + var(--space-4)));
+  opacity: 0;
+  transition:
+    transform 0.3s ease-in,
+    opacity 0.3s ease-in;
+}
+
+.notif-card--high {
+  border-color: var(--color-crimson-active);
+}
+
+.notif-icon {
+  font-size: var(--text-base);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.notif-message {
+  font-size: var(--text-xs);
+  color: var(--color-gold-primary);
+  flex: 1;
+}
+
+.notif-rarity {
+  font-size: var(--text-xs);
+  text-transform: capitalize;
+  padding: 2px var(--space-1);
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.notif-rarity--magic {
+  color: var(--color-rarity-magic);
+  background: var(--color-rarity-magic-bg);
+}
+
+.notif-rarity--rare {
+  color: var(--color-rarity-rare);
+  background: var(--color-rarity-rare-bg);
+}
+
+.notif-rarity--unique {
+  color: var(--color-rarity-unique);
+  background: var(--color-rarity-unique-bg);
+}

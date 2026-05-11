@@ -1,0 +1,119 @@
+.combat-log {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-panel);
+  border-top: 1px solid var(--color-gold-subtle);
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
+.combat-log-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--color-gold-subtle);
+  flex-shrink: 0;
+}
+
+.log-filter-btn {
+  padding: 2px var(--space-2);
+  font-size: var(--text-xs);
+  font-family: var(--font-sans);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-gold-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--color-gold-muted);
+  cursor: pointer;
+  transition:
+    color 0.15s,
+    border-color 0.15s,
+    background 0.15s;
+}
+
+.log-filter-btn--on {
+  color: var(--color-gold-primary);
+  border-color: var(--color-gold-muted);
+  background: var(--color-gold-subtle);
+}
+
+.combat-log-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: var(--space-2) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: var(--text-xs);
+  font-family: var(--font-mono);
+}
+
+.log-entry {
+  line-height: 1.4;
+}
+
+.log-entry--player-damage {
+  color: #c8a050;
+}
+
+.log-entry--enemy-damage {
+  color: #c06060;
+}
+
+.log-entry--player-evade {
+  color: #60a8c0;
+}
+
+.log-entry--enemy-evade {
+  color: #808080;
+}
+
+.log-entry--enemy-death {
+  color: #60c060;
+}
+
+.log-entry--player-death {
+  color: var(--color-crimson-active);
+  font-weight: 600;
+}
+
+.log-entry--pack-cleared {
+  color: var(--color-gold-primary);
+  font-weight: 600;
+}
+
+.log-entry--loot-drop {
+  color: var(--color-gold-light);
+}
+
+.log-entry--zone-completed {
+  color: var(--color-gold-primary);
+  font-weight: 600;
+}
+
+.log-empty {
+  color: var(--color-gold-muted);
+  font-style: italic;
+  margin-top: var(--space-2);
+}
+
+.log-paused-banner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-bg-elevated);
+  border-top: 1px solid var(--color-gold-muted);
+  font-size: var(--text-xs);
+  color: var(--color-gold-muted);
+  text-align: center;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.log-paused-banner:hover {
+  color: var(--color-gold-primary);
+}
