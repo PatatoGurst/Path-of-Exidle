@@ -1,0 +1,23 @@
+.inventory-cell {
+  aspect-ratio: 1;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-gold-subtle);
+  border-radius: 1px;
+  position: relative;
+  transition: border-color 0.1s, background 0.1s;
+}
+
+.inventory-cell--drag-over {
+  border-color: var(--color-gold-primary);
+  background: var(--color-gold-subtle);
+}
+
+.inventory-cell--targetable {
+  border-color: var(--color-gold-primary);
+  background: var(--color-gold-subtle);
+  cursor: pointer;
+}
+
+.inventory-cell--not-targetable {
+  opacity: 0.4;
+}

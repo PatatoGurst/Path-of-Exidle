@@ -69,3 +69,29 @@
 .item-tooltip-affix--suffix {
   color: var(--color-rarity-magic);
 }
+
+/* Comparison section */
+
+.item-tooltip-compare-label {
+  font-size: var(--text-xs);
+  color: var(--color-gold-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.item-tooltip-compare-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.item-tooltip-compare-delta {
+  font-size: var(--text-sm);
+}
+
+.item-tooltip-delta--pos {
+  color: #60c060;
+}
+
+.item-tooltip-delta--neg {
+  color: #c06060;
+}

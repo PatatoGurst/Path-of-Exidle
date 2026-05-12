@@ -15,9 +15,14 @@ interface Props {
   itemLevel: number
   quality: number
   affixes: Affix[]
+  comparedItem?: {
+    name: string
+    rarity: Rarity
+    affixes: Affix[]
+  }
 }
 
-export function ItemTooltip({ name, rarity, itemType, itemLevel, quality, affixes }: Props) {
+export function ItemTooltip({ name, rarity, itemType, itemLevel, quality, affixes, comparedItem }: Props) {
   const prefixes = affixes.filter((a) => a.type === 'prefix')
   const suffixes = affixes.filter((a) => a.type === 'suffix')
 
@@ -37,15 +42,42 @@ export function ItemTooltip({ name, rarity, itemType, itemLevel, quality, affixe
         <>
           <hr className="item-tooltip-divider" />
           {prefixes.map((affix, i) => (
-            <p key={`prefix-affix-${i}`} className="item-tooltip-affix item-tooltip-affix--prefix">
+            <p key={`prefix-${i}`} className="item-tooltip-affix item-tooltip-affix--prefix">
               {affix.description}
             </p>
           ))}
           {suffixes.map((affix, i) => (
-            <p key={`suffix-affix-${i}`} className="item-tooltip-affix item-tooltip-affix--suffix">
+            <p key={`suffix-${i}`} className="item-tooltip-affix item-tooltip-affix--suffix">
               {affix.description}
             </p>
           ))}
+        </>
+      )}
+
+      {comparedItem && (
+        <>
+          <hr className="item-tooltip-divider" />
+          <p className="item-tooltip-compare-label">Replaces equipped:</p>
+          <p className={`item-tooltip-compare-name item-tooltip-name--${comparedItem.rarity}`}>
+            {comparedItem.name}
+          </p>
+          <p className="item-tooltip-compare-delta">
+            {affixes.length - comparedItem.affixes.length > 0 && (
+              <span className="item-tooltip-delta--pos">
+                +{affixes.length - comparedItem.affixes.length} affix
+                {affixes.length - comparedItem.affixes.length !== 1 ? 'es' : ''}
+              </span>
+            )}
+            {affixes.length - comparedItem.affixes.length < 0 && (
+              <span className="item-tooltip-delta--neg">
+                {affixes.length - comparedItem.affixes.length} affix
+                {Math.abs(affixes.length - comparedItem.affixes.length) !== 1 ? 'es' : ''}
+              </span>
+            )}
+            {affixes.length - comparedItem.affixes.length === 0 && (
+              <span>Same number of affixes</span>
+            )}
+          </p>
         </>
       )}
     </div>

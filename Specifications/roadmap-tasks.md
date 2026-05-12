@@ -90,17 +90,17 @@
 
 ---
 
-## Phase 5 — Inventory Tab UI
+## Phase 5 — Inventory Tab UI ✓
 
-- [ ] **I-01** Equipment panel: 10 named slots as character silhouette, empty placeholder, item thumbnail on equip — spec section 5.8
-- [ ] **I-02** Inventory grid: 12×12 CSS grid, item card per slot — spec section 3.2.3
-- [ ] **I-03** Stash tabs: tab switcher, Tab 1 and Tab 2 unlocked by default, locked shown as `+` — spec section 3.2.4
-- [ ] **I-04** Currency panel: right column, stack count badge, click to enter application mode — spec section 3.2.5
-- [ ] **I-05** Drag & drop: grid↔grid, grid↔equipment slot, grid↔stash, equipment↔grid — spec section 3.2.7
-- [ ] **I-06** Item tooltip on hover: uses `ItemTooltip` + `Tooltip` components — spec section 5.13
-- [ ] **I-07** Equipment comparison in tooltip: show stat delta vs currently equipped item
-- [ ] **I-08** Currency application mode: right-click → highlight valid targets → click → apply — spec section 3.2.5
-- [ ] **I-09** Item destroy / recycle action (right-click menu or button on selected item)
+- [x] **I-01** Equipment panel: 10 named slots as character silhouette, empty placeholder, item thumbnail on equip — spec section 5.8
+- [x] **I-02** Inventory grid: 12×12 CSS grid, item card per slot — spec section 3.2.3
+- [x] **I-03** Stash tabs: tab switcher, Tab 1 and Tab 2 unlocked by default, locked shown as `+` — spec section 3.2.4
+- [x] **I-04** Currency panel: right column, stack count badge, click to enter application mode — spec section 3.2.5
+- [x] **I-05** Drag & drop: grid↔grid, grid↔equipment slot, grid↔stash, equipment↔grid — spec section 3.2.7
+- [x] **I-06** Item tooltip on hover: uses `ItemTooltip` + `Tooltip` components — spec section 5.13
+- [x] **I-07** Equipment comparison in tooltip: show stat delta vs currently equipped item
+- [x] **I-08** Currency application mode: right-click → highlight valid targets → click → apply — spec section 3.2.5
+- [x] **I-09** Item destroy / recycle action (right-click menu or button on selected item)
 
 ---
 
