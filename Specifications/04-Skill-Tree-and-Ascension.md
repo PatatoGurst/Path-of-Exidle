@@ -18,11 +18,13 @@ Points are earned primarily by **leveling up**. Some trees may have alternative 
 
 ### 3.4.2 Node Types
 
-| Type | Visual size | Description |
+| Type | Visual radius | Description |
 |---|---|---|
-| **Small** | Small circle | Simple incremental bonus (+5% damage, +10 HP) |
-| **Notable** | Medium circle | More significant or compound bonus; acts as a regional milestone |
-| **Keystone** | Large circle | Fundamentally alters a game mechanic; high-impact, often double-edged |
+| **Central** | 14 | The single root node at the center of the tree. Always pre-allocated. Grants no bonus. Exists only as the mandatory connection point for all first-step allocations. |
+| **Travel** | 5 | Pure attribute nodes that form the connecting paths between clusters. Always grant a flat attribute bonus (+10 STR / DEX / INT). Never grant other stats. Visually identical to Small nodes but semantically distinct. |
+| **Small** | 5 | Standard incremental bonus nodes inside clusters (+10% fire damage, +15 max life, etc.). The most common node type. |
+| **Notable** | 8 | Cluster-ending nodes that grant a stronger or compound bonus (e.g. +20% fire damage + 10% burning duration). Each cluster has exactly one Notable as its terminal node. |
+| **Keystone** | 12 | Rare, powerful nodes that fundamentally alter how a mechanic works (e.g. "100% more fire damage, 100% less cold and lightning damage"). Connected to exactly **one** other node — they are never routing nodes, always endpoints. |
 
 Nodes are connected by **edges** (lines). A node is **allocatable** only if it is adjacent to an already-allocated node (the starting node is always pre-allocated). This enforces path-building and strategic routing.
 
@@ -71,24 +73,45 @@ The main character skill tree uses a **radial fractal structure**, directly insp
 - Branches extend outward in all directions from the root, forming an organic, roughly circular mass
 - The tree grows through a repeating two-element pattern: **travel nodes** and **pattern clusters**
 
+**Thematic regions**
+
+The tree is divided into three major thematic sectors that radiate from the center:
+
+| Direction | Attribute | Primary themes |
+|---|---|---|
+| South-West | Strength (STR) | Life (primary), Armour, Physical damage, Fire damage |
+| North | Intelligence (INT) | Energy Shield, Spell damage, Elemental damage, Lightning (emphasis) |
+| South-East | Dexterity (DEX) | Evasion, Projectile damage, Cold damage |
+
+Rules:
+- Travel nodes in each sector grant the matching flat attribute (+10 STR / INT / DEX)
+- Most clusters are on-theme with their sector; a small number of off-theme clusters exist (e.g. a Life cluster in the DEX sector, an Elemental damage cluster near the INT/STR border)
+- **Life is special**: it has the most nodes in the STR sector, but Life nodes also appear throughout the INT and DEX sectors so that players are not forced into STR to scale effective HP
+- The three sectors are **not mirror images** of each other — the number of clusters, their depth, and their connections differ intentionally
+
 **Travel nodes**
-- Small nodes connecting clusters to one another and to the root
-- Always of type **Small** — no exceptions
-- Serve purely as path infrastructure; their bonuses are minor and incremental
-- Visually rendered as smaller circles with simple connecting lines
+- Connect clusters to one another and to the root
+- Always of type **Travel** — no exceptions
+- Serve purely as path infrastructure; bonuses are pure flat attributes
+- Visually identical to Small nodes in size (radius 5)
 
 **Pattern clusters**
-- Groups of **3 to 5 nodes** arranged in a small local shape (triangle, diamond, cross, arc, etc.)
-- Contain a mix of node types: Small, Notable, or Keystone
-- Each cluster has a thematic identity (e.g. "Physical damage cluster", "Life sustain cluster")
-- Keystones appear isolated or as the centerpiece of a cluster — never as travel nodes
+- Groups of **3 to 5 nodes** (including the terminal Notable) arranged in a small local shape
+- Always terminate in exactly one **Notable** — the strongest node of the cluster
+- Contain only Small or Notable nodes (Keystones are never part of a cluster)
+- Each cluster has a single thematic identity (e.g. "Fire damage", "Life/Armour hybrid")
 - Clusters are the primary decision points: the player routes toward clusters that match their build
+
+**Keystones**
+- Placed at the outer edges of the tree, connected to exactly one node
+- Never inside a cluster — they are always endpoints reachable after a notable or a travel sequence
+- Each Keystone fundamentally changes one game mechanic with a significant trade-off
 
 **Fractal growth rules**
 - Branches split and re-merge, creating multiple valid paths between distant clusters
-- No strict symmetry is required — the tree should feel organically grown, not geometrically rigid
+- No strict symmetry — the tree should feel organically grown, not geometrically rigid
 - Branch density increases toward the outer edges (more clusters, more specialization)
-- The center region near the root is sparser and more generic (broad bonuses)
+- The center region near the root is sparser and more generic
 
 **Visual rhythm** (for implementation guidance)
 ```
@@ -152,21 +175,65 @@ An opt-in mode allowing the player to plan a future path without spending points
 
 ### 3.4.10 Data Format (Node Definition)
 
-Each node in a tree is defined in JSON:
+Each node in a tree is defined in JSON. Positions (`x`, `y`) are canvas coordinates with the root at `(0, 0)`. All edges are listed on both connected nodes (bidirectional, but stored once per side).
 
 ```json
 {
-  "id": "node_042",
+  "id": "fire_notable",
   "type": "notable",
-  "x": 1240,
-  "y": 380,
-  "region": "offense",
-  "label": "Iron Grip",
-  "description": "+20% physical damage, +5% attack speed",
-  "edges": ["node_039", "node_041", "node_045"],
+  "label": "Pyromaniac",
+  "x": -105,
+  "y": 240,
+  "region": "str",
+  "description": "20% increased Fire Damage. 10% increased Burning Duration.",
+  "effects": [
+    { "effectId": "fire_damage_percent" },
+    { "effectId": "burning_duration_percent" }
+  ],
+  "edges": ["fire_s2", "ks_magma_heart"],
   "unlockCondition": null
 }
 ```
+
+**Effect resolution:** each `effectId` references an entry in `data/nodes/base_values.json`. The engine reads `smallValue` for Small/Travel nodes and `notableValue` for Notable nodes. Keystone effects use `"custom": true` with a free-form description:
+
+```json
+{
+  "id": "ks_magma_heart",
+  "type": "keystone",
+  "label": "Magma Heart",
+  "x": -80,
+  "y": 305,
+  "region": "str",
+  "description": "100% more Fire Damage. 100% less Cold and Lightning Damage.",
+  "effects": [
+    {
+      "custom": true,
+      "label": "Magma Heart",
+      "description": "You deal 100% more Fire Damage. You deal 100% less Cold and Lightning Damage."
+    }
+  ],
+  "edges": ["fire_notable"],
+  "unlockCondition": null
+}
+```
+
+**`data/nodes/base_values.json`** stores the canonical values for all reusable effect IDs:
+
+```json
+{
+  "fire_damage_percent": {
+    "stat": "fireDamage",
+    "modifier": "increased",
+    "smallValue": 10,
+    "notableValue": 20,
+    "label": "Fire Damage",
+    "unit": "%"
+  }
+}
+```
+
+Fields: `stat` (internal stat key), `modifier` (`"flat"` or `"increased"`), `smallValue`, `notableValue`, `label` (display text), `unit` (`"%"` or `""`).
 
 Optional `unlockCondition` allows gating nodes behind external criteria (zone reached, prestige level, etc.).
 

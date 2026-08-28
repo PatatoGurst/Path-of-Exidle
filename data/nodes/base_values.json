@@ -1,0 +1,178 @@
+{
+  "str_flat": {
+    "stat": "strength",
+    "modifier": "flat",
+    "smallValue": 10,
+    "notableValue": 20,
+    "label": "Strength",
+    "unit": ""
+  },
+  "dex_flat": {
+    "stat": "dexterity",
+    "modifier": "flat",
+    "smallValue": 10,
+    "notableValue": 20,
+    "label": "Dexterity",
+    "unit": ""
+  },
+  "int_flat": {
+    "stat": "intelligence",
+    "modifier": "flat",
+    "smallValue": 10,
+    "notableValue": 20,
+    "label": "Intelligence",
+    "unit": ""
+  },
+  "life_flat": {
+    "stat": "life",
+    "modifier": "flat",
+    "smallValue": 15,
+    "notableValue": 30,
+    "label": "Maximum Life",
+    "unit": ""
+  },
+  "life_percent": {
+    "stat": "life",
+    "modifier": "increased",
+    "smallValue": 6,
+    "notableValue": 12,
+    "label": "Maximum Life",
+    "unit": "%"
+  },
+  "mana_flat": {
+    "stat": "mana",
+    "modifier": "flat",
+    "smallValue": 10,
+    "notableValue": 20,
+    "label": "Mana",
+    "unit": ""
+  },
+  "energy_shield_flat": {
+    "stat": "energyShield",
+    "modifier": "flat",
+    "smallValue": 10,
+    "notableValue": 20,
+    "label": "Energy Shield",
+    "unit": ""
+  },
+  "energy_shield_percent": {
+    "stat": "energyShield",
+    "modifier": "increased",
+    "smallValue": 6,
+    "notableValue": 12,
+    "label": "Energy Shield",
+    "unit": "%"
+  },
+  "armour_percent": {
+    "stat": "armour",
+    "modifier": "increased",
+    "smallValue": 10,
+    "notableValue": 20,
+    "label": "Armour",
+    "unit": "%"
+  },
+  "physical_damage_reduction_percent": {
+    "stat": "physicalDamageReduction",
+    "modifier": "flat",
+    "smallValue": 3,
+    "notableValue": 5,
+    "label": "Physical Damage Reduction",
+    "unit": "%"
+  },
+  "evasion_percent": {
+    "stat": "evasion",
+    "modifier": "increased",
+    "smallValue": 10,
+    "notableValue": 20,
+    "label": "Evasion Rating",
+    "unit": "%"
+  },
+  "physical_damage_percent": {
+    "stat": "physicalDamage",
+    "modifier": "increased",
+    "smallValue": 10,
+    "notableValue": 20,
+    "label": "Physical Damage",
+    "unit": "%"
+  },
+  "fire_damage_percent": {
+    "stat": "fireDamage",
+    "modifier": "increased",
+    "smallValue": 10,
+    "notableValue": 20,
+    "label": "Fire Damage",
+    "unit": "%"
+  },
+  "burning_duration_percent": {
+    "stat": "burningDuration",
+    "modifier": "increased",
+    "smallValue": 10,
+    "notableValue": 10,
+    "label": "Burning Duration",
+    "unit": "%"
+  },
+  "cold_damage_percent": {
+    "stat": "coldDamage",
+    "modifier": "increased",
+    "smallValue": 10,
+    "notableValue": 20,
+    "label": "Cold Damage",
+    "unit": "%"
+  },
+  "chill_duration_percent": {
+    "stat": "chillDuration",
+    "modifier": "increased",
+    "smallValue": 10,
+    "notableValue": 10,
+    "label": "Chill Duration",
+    "unit": "%"
+  },
+  "lightning_damage_percent": {
+    "stat": "lightningDamage",
+    "modifier": "increased",
+    "smallValue": 10,
+    "notableValue": 20,
+    "label": "Lightning Damage",
+    "unit": "%"
+  },
+  "elemental_damage_percent": {
+    "stat": "elementalDamage",
+    "modifier": "increased",
+    "smallValue": 8,
+    "notableValue": 18,
+    "label": "Elemental Damage",
+    "unit": "%"
+  },
+  "spell_damage_percent": {
+    "stat": "spellDamage",
+    "modifier": "increased",
+    "smallValue": 10,
+    "notableValue": 20,
+    "label": "Spell Damage",
+    "unit": "%"
+  },
+  "projectile_damage_percent": {
+    "stat": "projectileDamage",
+    "modifier": "increased",
+    "smallValue": 10,
+    "notableValue": 20,
+    "label": "Projectile Damage",
+    "unit": "%"
+  },
+  "projectile_speed_percent": {
+    "stat": "projectileSpeed",
+    "modifier": "increased",
+    "smallValue": 10,
+    "notableValue": 10,
+    "label": "Projectile Speed",
+    "unit": "%"
+  },
+  "attack_speed_percent": {
+    "stat": "attackSpeed",
+    "modifier": "increased",
+    "smallValue": 5,
+    "notableValue": 10,
+    "label": "Attack Speed",
+    "unit": "%"
+  }
+}

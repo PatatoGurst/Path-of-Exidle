@@ -104,18 +104,18 @@
 
 ---
 
-## Phase 6 — Skill Tree Tab UI
+## Phase 6 — Skill Tree Tab UI ✓
 
-- [ ] **ST-01** PixiJS canvas mount: `<canvas>` via React `ref`, app initialized once outside React cycle — spec section 3.4.7
-- [ ] **ST-02** Tree renderer: draw nodes (3 sizes), draw edges, apply state colors (allocated gold / available dimmed / locked gray) — spec section 5.10
-- [ ] **ST-03** Pan and zoom: drag to pan, scroll to zoom, camera position stored per tree — spec section 3.4.8
-- [ ] **ST-04** Node hover: tooltip near node (name, type badge, bonus description, state, cost) — spec section 5.10
-- [ ] **ST-05** Node click: confirmation panel with Allocate / Refund buttons — spec section 5.10
-- [ ] **ST-06** Allocate action: spend skill point, update node state to `allocated`, recompute stats — spec section 3.4.3
-- [ ] **ST-07** Refund action: consume respec point, return skill point, update node state — spec section 3.4.4
-- [ ] **ST-08** Bridge path validation: block refund if removing node would orphan other allocated nodes — spec section 3.4.4
-- [ ] **ST-09** Available points counter: displayed near tree header
-- [ ] **ST-10** Skill point award on level-up: +1 per level, persisted in save
+- [x] **ST-01** PixiJS canvas mount: container div via React `ref`, PixiJS `Application` initialized once, canvas appended by renderer — spec section 3.4.7
+- [x] **ST-02** Tree renderer: 5 node types (central/travel/small/notable/keystone), edges node-edge-to-node-edge, state colors (allocated gold / available dimmed / locked dark) — spec section 5.10
+- [x] **ST-03** Pan and zoom: drag to pan (with click vs drag threshold), scroll to zoom (0.3×–3×), camera stored in renderer — spec section 3.4.8
+- [x] **ST-04** Node hover: portal tooltip (name, type badge, effects, state, cost) via PixiJS pointerover events — spec section 5.10
+- [x] **ST-05** Node click: confirmation panel (Allocate / Refund buttons, state-aware) — spec section 5.10
+- [x] **ST-06** Allocate action: spend skill point, add node to allocated set, renderer redraws — spec section 3.4.3
+- [x] **ST-07** Refund action: consume respec point, remove node from allocated set, returns skill point — spec section 3.4.4
+- [x] **ST-08** Bridge path validation: BFS from root over remaining nodes blocks refund if disconnection detected — spec section 3.4.4
+- [x] **ST-09** Available points counter: `SkillTreeHeader` component floating over canvas
+- [ ] **ST-10** Skill point award on level-up: +1 per level, persisted in save (blocked on CharacterContext — Phase 11)
 
 ---
 
@@ -248,5 +248,4 @@
 |---|---|---|
 | Item base type definitions | LT-04, I-06 | Base weapon/armour types with base stats and slot |
 | Item affix pool | LT-04, CB-03, CR-02–CR-11 | Affix IDs, tiers, value ranges, eligible item types |
-| Skill tree node data | ST-01–ST-10 | At least a small draft needed to test the renderer (D-06) |
 | Loot table assignments per monster | CB-08, LT-01 | Which table each monster references (D-07/08) |

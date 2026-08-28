@@ -214,7 +214,7 @@ export function InventoryPage() {
     }
   }
 
-  function handleCurrencyApply(item: Item, payload: DragPayload) {
+  function handleCurrencyApply(item: Item, _payload: DragPayload) {
     if (!selectedCurrency) {
       return
     }
