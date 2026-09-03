@@ -1,0 +1,68 @@
+.tree-editor-toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-bg-elevated);
+  border-bottom: 1px solid var(--color-gold-subtle);
+}
+
+.tree-editor-toolbar__group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.tree-editor-toolbar__select {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--color-gold-primary);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-gold-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-1) var(--space-2);
+}
+
+.tree-editor-toolbar__btn {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-gold-primary);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-gold-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-1) var(--space-3);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.tree-editor-toolbar__btn:hover:not(:disabled) {
+  border-color: var(--color-gold-primary);
+  color: var(--color-gold-light);
+}
+
+.tree-editor-toolbar__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.tree-editor-toolbar__btn--toggle.tree-editor-toolbar__btn--active {
+  background: var(--color-gold-subtle);
+  border-color: var(--color-gold-primary);
+  color: var(--color-gold-light);
+}
+
+.tree-editor-toolbar__btn--save {
+  border-color: var(--color-gold-muted);
+}
+
+.tree-editor-toolbar__dirty {
+  font-size: var(--text-xs);
+  color: var(--color-crimson-active);
+}

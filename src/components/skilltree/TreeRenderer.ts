@@ -3,25 +3,13 @@ import type { FederatedPointerEvent } from 'pixi.js'
 import type { TreeData, TreeNode, NodeState } from '../../types/skilltree'
 import { buildNodeMap, computeNodeState } from '../../lib/treeData'
 import type { NodeMap } from '../../types/skilltree'
-
-const NODE_RADIUS: Record<string, number> = {
-  central: 14,
-  travel: 5,
-  small: 5,
-  notable: 8,
-  keystone: 12,
-}
-
-const MIN_ZOOM = 0.3
-const MAX_ZOOM = 3.0
-const CLICK_THRESHOLD = 4
+import { TreeCanvasBase, NODE_RADIUS, CLICK_THRESHOLD, initPixiApp } from './TreeCanvasBase'
+import type { HitCandidate } from './TreeCanvasBase'
 
 const COLOR_EDGE_LOCKED = 0x4a4638
 const COLOR_EDGE_ALLOCATED = 0xd4a030
 
-export class TreeRenderer {
-  private readonly app: Application
-  private readonly world: Container
+export class TreeRenderer extends TreeCanvasBase {
   private readonly edgeLockedGfx: Graphics
   private readonly edgeAllocatedGfx: Graphics
   private readonly nodeGfxMap: Map<string, Graphics>
@@ -30,9 +18,6 @@ export class TreeRenderer {
   private readonly nodeMap: NodeMap
 
   private allocated: Set<string>
-  private camX: number
-  private camY: number
-  private camScale: number
 
   private isDragging = false
   private dragStartClientX = 0
@@ -47,37 +32,16 @@ export class TreeRenderer {
   onClick?: (nodeId: string) => void
   onDoubleClick?: (nodeId: string) => void
 
-  private readonly onWheelBound: (e: WheelEvent) => void
-  private readonly onPointerDownBound: (e: PointerEvent) => void
-  private readonly onPointerMoveBound: (e: PointerEvent) => void
-  private readonly onPointerUpBound: (e: PointerEvent) => void
-
   static async create(container: HTMLDivElement, data: TreeData): Promise<TreeRenderer> {
-    const app = new Application()
-    await app.init({
-      background: 0x0c0b09,
-      resizeTo: container,
-      antialias: true,
-      autoDensity: true,
-    })
-    const canvas = app.canvas as HTMLCanvasElement
-    canvas.style.display = 'block'
-    container.appendChild(canvas)
+    const app = await initPixiApp(container)
     return new TreeRenderer(app, data)
   }
 
   private constructor(app: Application, data: TreeData) {
-    this.app = app
+    super(app)
     this.data = data
     this.nodeMap = buildNodeMap(data)
     this.allocated = new Set(['root'])
-
-    this.camX = app.screen.width / 2
-    this.camY = app.screen.height / 2
-    this.camScale = 1.2
-
-    this.world = new Container()
-    app.stage.addChild(this.world)
 
     this.edgeLockedGfx = new Graphics()
     this.edgeAllocatedGfx = new Graphics()
@@ -135,32 +99,11 @@ export class TreeRenderer {
       }
     }
 
-    this.onWheelBound = this.onWheel.bind(this)
-    this.onPointerDownBound = this.onPointerDown.bind(this)
-    this.onPointerMoveBound = this.onPointerMove.bind(this)
-    this.onPointerUpBound = this.onPointerUp.bind(this)
-
-    this.setupInput()
     this.updateCamera()
     this.render()
   }
 
-  private setupInput() {
-    const canvas = this.app.canvas as HTMLCanvasElement
-    canvas.addEventListener('wheel', this.onWheelBound, { passive: false })
-    canvas.addEventListener('pointerdown', this.onPointerDownBound)
-    window.addEventListener('pointermove', this.onPointerMoveBound)
-    window.addEventListener('pointerup', this.onPointerUpBound)
-  }
-
-  private onWheel(e: WheelEvent) {
-    e.preventDefault()
-    const factor = e.deltaY > 0 ? 0.9 : 1.1
-    this.camScale = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, this.camScale * factor))
-    this.updateCamera()
-  }
-
-  private onPointerDown(e: PointerEvent) {
+  protected onPointerDown(e: PointerEvent) {
     if (e.button !== 0) {
       return
     }
@@ -173,7 +116,7 @@ export class TreeRenderer {
     this.onHover?.(null, 0, 0)
   }
 
-  private onPointerMove(e: PointerEvent) {
+  protected onPointerMove(e: PointerEvent) {
     if (!this.isDragging) {
       return
     }
@@ -185,23 +128,23 @@ export class TreeRenderer {
     this.updateCamera()
   }
 
-  private onPointerUp(e: PointerEvent) {
+  protected onPointerUp(e: PointerEvent) {
     if (!this.isDragging) {
       return
     }
     this.isDragging = false
     if (this.dragDist < CLICK_THRESHOLD) {
-      const node = this.hitTest(e.clientX, e.clientY)
-      if (node) {
+      const nodeId = this.hitTestNodes(e.clientX, e.clientY)
+      if (nodeId) {
         const now = Date.now()
-        const isDouble = node.id === this.lastClickNodeId && now - this.lastClickTime < 300
+        const isDouble = nodeId === this.lastClickNodeId && now - this.lastClickTime < 300
         if (isDouble) {
-          this.onDoubleClick?.(node.id)
+          this.onDoubleClick?.(nodeId)
           this.lastClickNodeId = null
           this.lastClickTime = 0
         } else {
-          this.onClick?.(node.id)
-          this.lastClickNodeId = node.id
+          this.onClick?.(nodeId)
+          this.lastClickNodeId = nodeId
           this.lastClickTime = now
         }
       } else {
@@ -210,32 +153,14 @@ export class TreeRenderer {
     }
   }
 
-  private hitTest(clientX: number, clientY: number): TreeNode | null {
-    const canvas = this.app.canvas as HTMLCanvasElement
-    const rect = canvas.getBoundingClientRect()
-    const worldX = (clientX - rect.left - this.camX) / this.camScale
-    const worldY = (clientY - rect.top - this.camY) / this.camScale
-
-    let closest: TreeNode | null = null
-    let closestDist = Infinity
-
-    for (const node of this.data.nodes) {
-      const minR = Math.max(NODE_RADIUS[node.type], 8)
-      const dx = worldX - node.x
-      const dy = worldY - node.y
-      const dist = Math.sqrt(dx * dx + dy * dy)
-      if (dist <= minR && dist < closestDist) {
-        closest = node
-        closestDist = dist
-      }
-    }
-    return closest
-  }
-
-  private updateCamera() {
-    this.world.x = this.camX
-    this.world.y = this.camY
-    this.world.scale.set(this.camScale)
+  private hitTestNodes(clientX: number, clientY: number): string | null {
+    const candidates: HitCandidate[] = this.data.nodes.map((n) => ({
+      id: n.id,
+      x: n.x,
+      y: n.y,
+      radius: NODE_RADIUS[n.type],
+    }))
+    return this.hitTest(clientX, clientY, candidates)
   }
 
   updateAllocation(allocated: Set<string>) {
@@ -362,15 +287,5 @@ export class TreeRenderer {
     }
     label.tint =
       state === 'allocated' ? 0xf0c860 : state === 'available' ? 0xb09040 : 0x706858
-  }
-
-  destroy() {
-    const canvas = this.app.canvas as HTMLCanvasElement
-    canvas.removeEventListener('wheel', this.onWheelBound)
-    canvas.removeEventListener('pointerdown', this.onPointerDownBound)
-    window.removeEventListener('pointermove', this.onPointerMoveBound)
-    window.removeEventListener('pointerup', this.onPointerUpBound)
-    canvas.parentElement?.removeChild(canvas)
-    this.app.destroy(true)
   }
 }

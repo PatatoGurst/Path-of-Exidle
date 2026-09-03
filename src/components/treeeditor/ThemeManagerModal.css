@@ -1,0 +1,128 @@
+.theme-manager-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-manager-modal {
+  position: relative;
+  width: min(640px, 90vw);
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: var(--space-6);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-gold-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.theme-manager-modal__close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  background: none;
+  border: none;
+  color: var(--color-gold-muted);
+  font-size: var(--text-lg);
+  cursor: pointer;
+  line-height: 1;
+  padding: 2px var(--space-1);
+  border-radius: var(--radius-sm);
+}
+
+.theme-manager-modal__close:hover {
+  color: var(--color-gold-primary);
+  background: var(--color-gold-subtle);
+}
+
+.theme-manager-modal__title {
+  font-size: var(--text-lg);
+  color: var(--color-gold-light);
+  margin-bottom: var(--space-4);
+}
+
+.theme-manager-modal__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+.theme-manager-modal__table th {
+  text-align: left;
+  font-size: var(--text-xs);
+  color: var(--color-gold-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: var(--space-1) var(--space-2);
+  border-bottom: 1px solid var(--color-gold-subtle);
+}
+
+.theme-manager-modal__table td {
+  padding: var(--space-1) var(--space-2);
+  border-bottom: 1px solid var(--color-bg-card);
+  color: var(--color-gold-primary);
+}
+
+.theme-manager-modal__table input {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--color-gold-light);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-gold-subtle);
+  border-radius: var(--radius-sm);
+  padding: 2px var(--space-1);
+  width: 100%;
+}
+
+.theme-manager-modal__table input[type='color'] {
+  padding: 0;
+  width: 32px;
+  height: 22px;
+}
+
+.theme-manager-modal__table input[type='number'] {
+  width: 64px;
+}
+
+.theme-manager-modal__new-row {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.theme-manager-modal__new-row input {
+  flex: 1;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--color-gold-light);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-gold-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-1) var(--space-2);
+}
+
+.theme-manager-modal__btn,
+.theme-manager-modal__small-btn {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--color-gold-primary);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-gold-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-1) var(--space-3);
+  cursor: pointer;
+}
+
+.theme-manager-modal__small-btn {
+  padding: 1px var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.theme-manager-modal__btn:hover,
+.theme-manager-modal__small-btn:hover {
+  border-color: var(--color-gold-primary);
+  color: var(--color-gold-light);
+}

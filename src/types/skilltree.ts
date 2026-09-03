@@ -20,6 +20,7 @@ export interface TreeNode {
   effects: NodeEffect[]
   edges: string[]
   unlockCondition: null
+  theme?: string
 }
 
 export interface TreeData {
@@ -44,3 +45,11 @@ export interface BaseValueEntry {
 
 export type BaseValues = Record<string, BaseValueEntry>
 export type NodeMap = Map<string, TreeNode>
+
+export interface ThemeEntry {
+  label: string
+  value: number
+  color: string
+}
+
+export type ThemeCatalog = Record<string, ThemeEntry>

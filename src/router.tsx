@@ -5,6 +5,7 @@ import { InventoryPage } from './pages/InventoryPage'
 import { MapPage } from './pages/MapPage'
 import { OptionsPage } from './pages/OptionsPage'
 import { SkillTreePage } from './pages/SkillTreePage'
+import { TreeEditorPage } from './pages/TreeEditorPage'
 
 const rootRoute = createRootRoute({ component: App })
 
@@ -46,6 +47,12 @@ const optionsRoute = createRoute({
   component: OptionsPage,
 })
 
+const treeEditorRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/dev/tree-editor',
+  component: TreeEditorPage,
+})
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   characterRoute,
@@ -53,6 +60,7 @@ const routeTree = rootRoute.addChildren([
   mapRoute,
   skillTreeRoute,
   optionsRoute,
+  ...(import.meta.env.DEV ? [treeEditorRoute] : []),
 ])
 
 export const router = createRouter({ routeTree })
